@@ -1,5 +1,7 @@
 # proyek-akhir-threejs-pecel-lele-cloud
 
+# Repo ini lanjutan dari Project ![three-world](https://github.com/storyofhis/three-world)
+
 Grafika Komputer D
 List Anggota :
 1. Muhammad Rolanov Wowor     5025201017
