@@ -9,7 +9,10 @@ import gsap from "gsap";
 import Camera from "../Camera/index";
 import Object from "../Object/index";
 import Floor from "../Floor/index";
-// import Env from "../Environment/index";
+import SunSphereGeometry from "../Sun/index";
+// import Home from "../Home/index";
+import ModelViewer from "../Home/ModelViewer";
+import Rumah from "../Home/Rumah";
 export class ThirdPersonCamera {
   constructor(params) {
     this._params = params;
@@ -17,13 +20,6 @@ export class ThirdPersonCamera {
   }
 }
 export default function Three() {
-  // let loader = new THREE.TextureLoader("../../texture/grass.jpeg");
-
-  // const textureMap = useLoader(THREE.TextureLoader, "../../texture/grass.jpeg");
-
-  // const [grassTexture, disGrassTexture] = useTexture(null);
-  // disGrassTexture("../../texture/grass.jpeg");
-  // const texture = useTexture("../../texture/grass.jpeg");
   // Code to move the camera around
   const orbitControlsRef = useRef(null);
   useFrame((state, delta, xrFrame, yrFrame) => {
@@ -35,13 +31,13 @@ export default function Three() {
     }
   });
 
-  // requestAnimationFrame(() => {});
+  requestAnimationFrame(() => {});
 
-  // useEffect(() => {
-  //   if (!!orbitControlsRef.current) {
-  //     console.log(orbitControlsRef.current);
-  //   }
-  // }, [orbitControlsRef.current]);
+  useEffect(() => {
+    if (!!orbitControlsRef.current) {
+      console.log(orbitControlsRef.current);
+    }
+  }, [orbitControlsRef.current]);
 
   const ballRef = useRef(null);
   useEffect(() => {
@@ -100,15 +96,16 @@ export default function Three() {
   return (
     <>
       <Camera orbitControlsRef={orbitControlsRef} />
-      <Object ballRef={ballRef} />
-      <Floor />
-      {/* <Terrain /> */}
+      {/* <SunSphereGeometry /> */}
+      {/* <ModelViewer scale="40" modelPath="Home/Rumah.glb" /> */}
+      <Rumah />
+      {/* <Object ballRef={ballRef} /> */}
+      {/* <Floor /> */}
       <ambientLight args={["#ffffff", 0.25]} />
       <spotLight args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]} position={[-3, 1, 0]} castShadow />
       <Environment background>
         <mesh>
           <sphereGeometry args={[50, 100, 100]} />
-          {/* <meshBasicMaterial side={THREE.BackSide} color="#2266cc" /> */}
           <meshBasicMaterial side={THREE.BackSide} map={texture} />
         </mesh>
       </Environment>
