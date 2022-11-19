@@ -96,17 +96,18 @@ export default function Three() {
   return (
     <>
       <Camera orbitControlsRef={orbitControlsRef} />
-      {/* <SunSphereGeometry /> */}
+      <SunSphereGeometry />
       {/* <ModelViewer scale="40" modelPath="Home/Rumah.glb" /> */}
       <Rumah />
       {/* <Object ballRef={ballRef} /> */}
-      {/* <Floor /> */}
+      <Floor />
       <ambientLight args={["#ffffff", 0.25]} />
       <spotLight args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]} position={[-3, 1, 0]} castShadow />
       <Environment background>
         <mesh>
           <sphereGeometry args={[50, 100, 100]} />
-          <meshBasicMaterial side={THREE.BackSide} map={texture} />
+          {/* <meshBasicMaterial side={THREE.BackSide} map={texture} /> */}
+          <meshBasicMaterial color="#2266cc" side={THREE.BackSide} />
         </mesh>
       </Environment>
     </>
