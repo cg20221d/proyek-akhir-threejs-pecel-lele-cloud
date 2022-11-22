@@ -6,6 +6,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import gsap from "gsap";
+import Character from "../Character/index";
 import Camera from "../Camera/index";
 import Object from "../Object/index";
 import Floor from "../Floor/index";
