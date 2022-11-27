@@ -6,6 +6,7 @@ import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import gsap from "gsap";
+import Character from "../Character/index";
 import Camera from "../Camera/index";
 import Object from "../Object/index";
 import Floor from "../Floor/index";
@@ -96,13 +97,13 @@ export default function Three() {
   return (
     <>
       <Camera orbitControlsRef={orbitControlsRef} />
-      <SunSphereGeometry />
+      {/* <SunSphereGeometry /> */}
       {/* <ModelViewer scale="40" modelPath="Home/Rumah.glb" /> */}
       <Rumah />
       {/* <Object ballRef={ballRef} /> */}
       {/* <Floor /> */}
       <ambientLight args={["#ffffff", 0.25]} />
-      <spotLight args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]} position={[-3, 1, 0]} castShadow />
+      <spotLight args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]} position={[-6, 4, 1]} castShadow />
       <Environment background>
         <mesh>
           <sphereGeometry args={[50, 100, 100]} />
