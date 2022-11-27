@@ -1,19 +1,24 @@
 import { angleToRadians } from "../../utils/angle";
 import { PerspectiveCamera, OrbitControls, Environment, useTexture, Plane } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
+import { useFrame, useThree } from "@react-three/fiber";
 import { useRef, useEffect } from "react";
 import { TextureLoader } from "three/src/loaders/TextureLoader";
 import * as THREE from "three";
 import { useLoader } from "@react-three/fiber";
 import gsap from "gsap";
-import Character from "../Character/index";
 import Camera from "../Camera/index";
 import Object from "../Object/index";
 import Floor from "../Floor/index";
 import SunSphereGeometry from "../Sun/index";
-// import Home from "../Home/index";
 import ModelViewer from "../Home/ModelViewer";
 import Rumah from "../Home/Rumah";
+
+// // Fix Olan's Character
+// import { Vector3, Raycaster } from "three";
+// import { useKeyboardInput } from "../Hooks/useKeyboardInput";
+// import { useMouseInput } from "../Hooks/useMouseInput";
+// import { useVariable } from "../Hooks/useVariable";
+// import { useSphere } from "@react-three/cannon";
 export class ThirdPersonCamera {
   constructor(params) {
     this._params = params;
@@ -94,14 +99,14 @@ export default function Three() {
   }, [ballRef.current]);
 
   const texture = useLoader(TextureLoader, "texture/cloud.jpeg");
+
   return (
     <>
       <Camera orbitControlsRef={orbitControlsRef} />
       {/* <SunSphereGeometry /> */}
       {/* <ModelViewer scale="40" modelPath="Home/Rumah.glb" /> */}
       <Rumah />
-      {/* <Object ballRef={ballRef} /> */}
-      {/* <Floor /> */}
+
       <ambientLight args={["#ffffff", 0.25]} />
       <spotLight args={["#ffffff", 1.5, 7, angleToRadians(45), 0.4]} position={[-6, 4, 1]} castShadow />
       <Environment background>

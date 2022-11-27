@@ -2,27 +2,32 @@ import { useSphere } from "@react-three/cannon";
 import React, { useEffect, useRef, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Vector3 } from "three";
-import { useKeyboardInput } from "../Character/useKeyboardInput";
-import { useMouseInput } from "../Character/useMouseInput";
-import { useVariable } from "../Character/useVariable";
+import { useKeyboardInput } from "../component/Hooks/useKeyboardInput";
+import { useMouseInput } from "../component/Hooks/useMouseInput";
+import { useVariable } from "../component/Hooks/useVariable";
+import { Bullet } from "./Bullet";
 import { Raycaster } from "three";
 
-/** Character movement constants */
+/** Palyer movement constants */
 const speed = 300;
+const bulletSpeed = 30;
+const bulletCoolDown = 300;
 const jumpSpeed = 5;
 const jumpCoolDown = 400;
 
-export const Character = () => {
-  /** Character collider */
+export const Player = () => {
   const [sphereRef, api] = useSphere(() => ({
     mass: 100,
     fixedRotation: true,
     position: [0, 1, 0],
     args: 0.2,
     material: {
-      friction: 0
-    }
+      friction: 0,
+    },
   }));
+
+  /** Bullets */
+  const [bullets, setBullets] = useState([]);
 
   /** Input hooks */
   const pressed = useKeyboardInput(["w", "a", "s", "d", " "]);
@@ -32,21 +37,21 @@ export const Character = () => {
   const input = useVariable(pressed);
   const mouseInput = useVariable(pressedMouse);
 
-  /** Character movement constants */
+  /** Player movement constants */
   const { camera, scene } = useThree();
 
-  /** Character state */
+  /** Player state */
   const state = useRef({
+    timeToShoot: 0,
     timeTojump: 0,
     vel: [0, 0, 0],
-    jumping: false
+    jumping: false,
   });
 
   useEffect(() => {
     api.velocity.subscribe((v) => (state.current.vel = v));
   }, [api]);
 
-  /** Character loop */
   useFrame((_, delta) => {
     /** Handles movement */
     const { w, s, a, d } = input.current;
@@ -79,9 +84,7 @@ export const Character = () => {
     }
 
     if (horizontal !== 0 && vertical !== 0) {
-      velocity
-        .add(forward.clone().multiplyScalar(speed * vertical))
-        .add(right.clone().multiplyScalar(speed * horizontal));
+      velocity.add(forward.clone().multiplyScalar(speed * vertical)).add(right.clone().multiplyScalar(speed * horizontal));
       velocity.clampLength(-speed, speed);
     } else if (horizontal !== 0) {
       velocity.add(right.clone().multiplyScalar(speed * horizontal));
@@ -89,28 +92,15 @@ export const Character = () => {
       velocity.add(forward.clone().multiplyScalar(speed * vertical));
     }
 
-    /** Updates Character velocity */
-    api.velocity.set(
-      velocity.x * delta,
-      state.current.vel[1],
-      velocity.z * delta
-    );
+    /** Updates player velocity */
+    api.velocity.set(velocity.x * delta, state.current.vel[1], velocity.z * delta);
     /** Updates camera position */
-    camera.position.set(
-      sphereRef.current.position.x,
-      sphereRef.current.position.y + 1,
-      sphereRef.current.position.z
-    );
+    camera.position.set(sphereRef.current.position.x, sphereRef.current.position.y + 1, sphereRef.current.position.z);
 
     /** Handles jumping */
     if (state.current.jumping && state.current.vel[1] < 0) {
       /** Ground check */
-      const raycaster = new Raycaster(
-        sphereRef.current.position,
-        new Vector3(0, -1, 0),
-        0,
-        0.2
-      );
+      const raycaster = new Raycaster(sphereRef.current.position, new Vector3(0, -1, 0), 0, 0.2);
       const intersects = raycaster.intersectObjects(scene.children);
       if (intersects.length !== 0) {
         state.current.jumping = false;
@@ -126,11 +116,32 @@ export const Character = () => {
       }
     }
 
+    /** Handles shooting */
+    const bulletDirection = cameraDirection.clone().multiplyScalar(bulletSpeed);
+    const bulletPosition = camera.position.clone().add(cameraDirection.clone().multiplyScalar(2));
+
+    if (mouseInput.current.left) {
+      const now = Date.now();
+      if (now >= state.current.timeToShoot) {
+        state.current.timeToShoot = now + bulletCoolDown;
+        setBullets((bullets) => [
+          ...bullets,
+          {
+            id: now,
+            position: [bulletPosition.x, bulletPosition.y, bulletPosition.z],
+            forward: [bulletDirection.x, bulletDirection.y, bulletDirection.z],
+          },
+        ]);
+      }
+    }
   });
 
   return (
     <>
-      {}
+      {/** Renders bullets */}
+      {bullets.map((bullet) => {
+        return <Bullet key={bullet.id} velocity={bullet.forward} position={bullet.position} />;
+      })}
     </>
   );
 };
