@@ -6,15 +6,24 @@ source: https://sketchfab.com/3d-models/sun-9ef1c68fbb944147bcfcc891d3912645
 title: Sun
 */
 
-import React, { useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useRef } from "react";
+import { useBox } from "@react-three/cannon";
+import { useGLTF, useAnimations, Sparkles } from "@react-three/drei";
 
-export function Model(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/sun/sun.glb')
-  const { actions } = useAnimations(animations, group)
+export default function Model(props, { ...box }) {
+  const group = useRef();
+  const { nodes, materials, animations } = useGLTF("/sun/sun.glb");
+  const { actions } = useAnimations(animations, group);
+  const [ref] = useBox((index) => ({
+    type: "Static",
+    mass: 1,
+    args: box.args,
+    position: box.position,
+
+    ...box,
+  }));
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={ref} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="3a2aaa22fb3d4b329318a980ad1bf6d1fbx" rotation={[Math.PI / 2, 0, 0]}>
@@ -32,7 +41,7 @@ export function Model(props) {
         </group>
       </group>
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/sun/sun.glb')
+useGLTF.preload("/sun/sun.glb");
