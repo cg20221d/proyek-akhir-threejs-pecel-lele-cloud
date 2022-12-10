@@ -1,11 +1,12 @@
 import React from "react";
-import { useLoader } from "@react-three/fiber";
-import { TextureLoader } from "three/src/loaders/TextureLoader";
 
-const index = () => {
-  const texture = useLoader(TextureLoader, "sun/sun.glb");
-  return <ModelViewer scale="2" modelPath={texture} />;
+const SunSphereGeometry = () => {
+  return (
+    <mesh position={[-2, 1.75, 0]}>
+      <sphereGeometry args={[0.5, 32, 32]} />
+      <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
+    </mesh>
+  );
 };
 
-export default index;
-
+export default SunSphereGeometry;
