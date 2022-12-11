@@ -23,7 +23,7 @@ function App() {
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-5, 0, -5]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0, -10]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[10, 0, 5]} />
-        <Sun args={[0.2, 2, 0.2]} scale={0.3} position={[20, 40, 0.25]} />
+        <Sun />
         <Sky />
       </BaseScene>
     </>
