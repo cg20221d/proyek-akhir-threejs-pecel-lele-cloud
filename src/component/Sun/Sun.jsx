@@ -11,23 +11,23 @@ import { useBox } from "@react-three/cannon";
 import { useGLTF, useAnimations, Sparkles } from "@react-three/drei";
 import sunCalc from "suncalc"
 
-export default function Model() {
+export default function Model(props, { ...box }) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/sun/sun.glb");
   const { actions } = useAnimations(animations, group);
-
+  
   // get today's sunlight times for surabaya
   const times = sunCalc.getTimes(new Date(), -7.25, 112.7688);
 
   // // format sunrise time from the Date object
   // const sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
 
-  const location = sunCalc.getPosition(new Date(), -7.25, 112.7688);
+  const location = sunCalc.getPosition(times.sunset, -7.25, 112.7688);
 
 	const azimuth = location.azimuth * 180 / Math.PI;
 	const altitude = location.altitude * 180 / Math.PI;
     
-  const radius = window.innerWidth/10;
+  const radius = window.innerWidth/20;
   const height = window.innerHeight/20;
   const theta = azimuth + 90;
 	const delta = altitude;
@@ -37,9 +37,18 @@ export default function Model() {
   const position_z = radius * Math.sin(delta * Math.PI / 180);
   console.log(position_x + " " + position_y + " " + position_z);
   
+  const position=[position_x, position_y, position_z];
+  const [ref] = useBox((index) => ({
+    type: "Static",
+    mass: 1,
+    args: box.args,
+    position: position,
+
+    ...box,
+  }));
+
   return (
-    <group ref={group} dispose={null}>
-      <group position={[position_x, position_y, position_z]}>
+    <group ref={ref} {...props} dispose={null}>
       <group name="Sketchfab_Scene">
         <group name="Sketchfab_model" rotation={[-Math.PI / 2, 0, 0]}>
           <group name="3a2aaa22fb3d4b329318a980ad1bf6d1fbx" rotation={[Math.PI / 2, 0, 0]}>
@@ -48,7 +57,7 @@ export default function Model() {
                 <group name="UnstableStarCore" rotation={[-Math.PI / 2, 0, 0]}>
                   <mesh name="UnstableStarCore_1_0" geometry={nodes.UnstableStarCore_1_0.geometry} material={materials.material} />
                 </group>
-                <group name="UnstableStarref" rotation={[-Math.PI / 2, 0, 0]} scale={0.05}>
+                <group name="UnstableStarref" rotation={[-Math.PI / 2, 0, 0]} scale={1}>
                   <mesh name="UnstableStarref_2_0" geometry={nodes.UnstableStarref_2_0.geometry} material={materials.material_1} />
                 </group>
               </group>
@@ -57,7 +66,6 @@ export default function Model() {
           </group>
         </group>
       </group>
-    </group>
   );
 }
 

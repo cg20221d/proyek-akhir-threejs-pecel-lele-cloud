@@ -14,16 +14,14 @@ function App() {
   return (
     <>
       <BaseScene>
-        <BaseCharacter controls position={[0, 2, 0]} args={[0.5]} color="yellow" />
+        <BaseCharacter controls position={[0, 2, 0]} args={[2.5]} color="yellow" />
         <Rumah />
         <ambientLight args={["#ffffff", 0.25]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[10, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0, 10]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-10, 0, 5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-5, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0, -10]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[10, 0, 5]} />
-        <Sun />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, 3]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, -5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, -5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 8]} />
+        <Sun args={[0.2, 2, 0.2]} scale={0.7} />
         <Sky />
       </BaseScene>
     </>
