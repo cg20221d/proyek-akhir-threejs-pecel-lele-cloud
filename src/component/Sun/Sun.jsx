@@ -30,7 +30,7 @@ export default function Model(props, { ...box }) {
   const altitude = (location.altitude * 180) / Math.PI;
 
   const radius = window.innerWidth / -30;
-  const height = window.innerHeight / 15;
+  const height = window.innerHeight / 20;
   const theta = azimuth + 90;
   const delta = altitude;
   var apparentRadius = radius * Math.cos((delta * Math.PI) / 180);
