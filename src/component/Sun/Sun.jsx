@@ -22,6 +22,7 @@ export default function Model(props, { ...box }) {
   // // format sunrise time from the Date object
   // const sunriseStr = times.sunrise.getHours() + ':' + times.sunrise.getMinutes();
 
+  // const location = sunCalc.getPosition(times.sunrise, -7.25, 112.7688);
   // const location = sunCalc.getPosition(times.sunset, -7.25, 112.7688);
   const location = sunCalc.getPosition(new Date(), -7.25, 112.7688);
 
@@ -29,7 +30,7 @@ export default function Model(props, { ...box }) {
   const altitude = (location.altitude * 180) / Math.PI;
 
   const radius = window.innerWidth / 20;
-  const height = window.innerHeight / 20;
+  const height = window.innerHeight / 10;
   const theta = azimuth + 90;
   const delta = altitude;
   var apparentRadius = radius * Math.cos((delta * Math.PI) / 180);
