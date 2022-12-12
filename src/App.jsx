@@ -12,10 +12,29 @@ import Sun from "./component/Sun/Sun";
 import sunCalc from "suncalc";
 
 function App(props) {
-  const location = sunCalc.getPosition(new Date(), -7.25, 112.7688);
+  // const location = sunCalc.getPosition(new Date(), -7.25, 112.7688);
 
-  const azimuth = (location.azimuth * 180) / Math.PI;
-  const altitude = (location.altitude * 180) / Math.PI;
+  // const azimuth = (location.azimuth * 180) / Math.PI;
+  // const altitude = (location.altitude * 180) / Math.PI;
+  // const radius = window.innerWidth / -30;
+  // const height = window.innerHeight / 20;
+  // const theta = azimuth + 90;
+  // const delta = altitude;
+  // var apparentRadius = radius * Math.cos((delta * Math.PI) / 180);
+  // const position_x = apparentRadius * Math.cos((theta * Math.PI) / 180);
+  // const position_y = apparentRadius * Math.sin((theta * Math.PI) / 180) + height;
+  // const position_z = radius * Math.sin((delta * Math.PI) / 180);
+  // console.log(position_x + " " + position_y + " " + position_z);
+
+  // const position = [-position_x, position_y, position_z];
+  // const [ref] = useBox((index) => ({
+  //   type: "Static",
+  //   mass: 1,
+  //   // args: box.args,
+  //   position: position,
+
+  //   // ...box,
+  // }));
   return (
     <>
       <BaseScene>
@@ -32,9 +51,11 @@ function App(props) {
           <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
         </mesh> */}
         {/* <ambientLight args={["#ffffff", 0.5]} /> */}
-        <pointLight args={["#ffffff", 1]} position={[0.2, 10, 0.2]} />
+        {/* <group ref={ref} {...props} dispose={null}> */}
+        <pointLight args={["#ffffff", 2]} position={[0.2, 10, 0.2]} />
+        {/* </group> */}
 
-        {/* <Sky distance={450000} azimuth={0.25} /> */}
+        <Sky distance={450000} azimuth={1} />
         {/* <Environment background>
           <mesh>
             <sphereGeometry args={[50, 100, 100]} />
