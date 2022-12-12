@@ -52,7 +52,7 @@ function App(props) {
         </mesh> */}
         {/* <ambientLight args={["#ffffff", 0.5]} /> */}
         {/* <group ref={ref} {...props} dispose={null}> */}
-        <pointLight args={["#ffffff", 2]} position={[0.2, 10, 0.2]} />
+        {/* <pointLight args={["#ffffff", 2]} position={[0.2, 10, 0.2]} /> */}
         {/* </group> */}
 
         <Sky distance={450000} azimuth={1} />
