@@ -32,9 +32,9 @@ function App(props) {
           <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
         </mesh> */}
         {/* <ambientLight args={["#ffffff", 0.5]} /> */}
-        {/* <pointLight args={["#ffffff", 1]} position={[0.2, 10, 0.2]} /> */}
+        <pointLight args={["#ffffff", 1]} position={[0.2, 10, 0.2]} />
 
-        <Sky distance={450000} azimuth={0.25} />
+        {/* <Sky distance={450000} azimuth={0.25} /> */}
         {/* <Environment background>
           <mesh>
             <sphereGeometry args={[50, 100, 100]} />
