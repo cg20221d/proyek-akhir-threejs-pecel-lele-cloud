@@ -3,26 +3,34 @@ import Three from "./component/three";
 import "./App.css";
 
 /** Person */
-import { Sky } from "@react-three/drei";
+import { Sky, Environment } from "@react-three/drei";
 import BaseScene from "./ui/BaseScene";
 import ThreeModel from "./component/ThreeModel";
 import BaseCharacter from "./ui/BaseCharacter";
 import Rumah from "./component/Home/Rumah";
 import Sun from "./component/Sun/Sun";
 
-function App() {
+function App(props) {
   return (
     <>
       <BaseScene>
-        <BaseCharacter controls position={[0, 2, 0]} args={[2.5]} color="yellow" />
+        <BaseCharacter controls position={[-5, 10, -30]} args={[2.5]} color="yellow" />
         <Rumah />
-        <ambientLight args={["#ffffff", 0.25]} />
+        {/* <ambientLight args={["#ffffff", 0.25]} /> */}
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, 3]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, -5]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, -5]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 8]} />
-        <Sun args={[0.2, 2, 0.2]} scale={0.7} />
-        <Sky />
+        <mesh>
+          <Sun args={[0.2, 2, 0.2]} scale={0.7} />
+        </mesh>
+        <Sky distance={450000} azimuth={0.25} />
+        {/* <Environment background>
+          <mesh>
+            <sphereGeometry args={[50, 100, 100]} />
+            <meshBasicMaterial />
+          </mesh>
+        </Environment> */}
       </BaseScene>
     </>
   );
