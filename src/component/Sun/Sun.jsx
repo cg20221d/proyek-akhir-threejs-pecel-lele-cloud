@@ -29,8 +29,8 @@ export default function Model(props, { ...box }) {
   const azimuth = (location.azimuth * 180) / Math.PI;
   const altitude = (location.altitude * 180) / Math.PI;
 
-  const radius = window.innerWidth / 20;
-  const height = window.innerHeight / 10;
+  const radius = window.innerWidth / -30;
+  const height = window.innerHeight / 15;
   const theta = azimuth + 90;
   const delta = altitude;
   var apparentRadius = radius * Math.cos((delta * Math.PI) / 180);
@@ -39,7 +39,7 @@ export default function Model(props, { ...box }) {
   const position_z = radius * Math.sin((delta * Math.PI) / 180);
   console.log(position_x + " " + position_y + " " + position_z);
 
-  const position = [position_x, position_y, position_z];
+  const position = [-position_x, position_y, position_z];
   const [ref] = useBox((index) => ({
     type: "Static",
     mass: 1,
