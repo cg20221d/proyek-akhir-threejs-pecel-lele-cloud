@@ -17,10 +17,10 @@ function App(props) {
         <BaseCharacter controls position={[0, 5, 30]} args={[2.5]} color="yellow" />
         <Rumah />
         {/* <ambientLight args={["#ffffff", 0.25]} /> */}
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, 3]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 3]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 8]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 20]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 20]} />
         <mesh>
           <Sun args={[0.2, 2, 0.2]} scale={0.7} />
         </mesh>
