@@ -9,43 +9,24 @@ import ThreeModel from "./component/ThreeModel";
 import BaseCharacter from "./ui/BaseCharacter";
 import Rumah from "./component/Home/Rumah";
 import Sun from "./component/Sun/Sun";
-import sunCalc from "suncalc";
+import Lampu from "./component/Lampu";
+import Garden from "./component/French_chateau";
 
 function App(props) {
-  // const location = sunCalc.getPosition(new Date(), -7.25, 112.7688);
-
-  // const azimuth = (location.azimuth * 180) / Math.PI;
-  // const altitude = (location.altitude * 180) / Math.PI;
-  // const radius = window.innerWidth / -30;
-  // const height = window.innerHeight / 20;
-  // const theta = azimuth + 90;
-  // const delta = altitude;
-  // var apparentRadius = radius * Math.cos((delta * Math.PI) / 180);
-  // const position_x = apparentRadius * Math.cos((theta * Math.PI) / 180);
-  // const position_y = apparentRadius * Math.sin((theta * Math.PI) / 180) + height;
-  // const position_z = radius * Math.sin((delta * Math.PI) / 180);
-  // console.log(position_x + " " + position_y + " " + position_z);
-
-  // const position = [-position_x, position_y, position_z];
-  // const [ref] = useBox((index) => ({
-  //   type: "Static",
-  //   mass: 1,
-  //   // args: box.args,
-  //   position: position,
-
-  //   // ...box,
-  // }));
   return (
     <>
       <BaseScene>
         <BaseCharacter controls position={[0, 5, 30]} args={[2.5]} color="yellow" />
         <Rumah />
         {/* <ambientLight args={["#ffffff", 0.25]} /> */}
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 3]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, -5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 1]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-5, 0, 5]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 20]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 20]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[3, 0, 20]} />
         <Sun args={[0.2, 2, 0.2]} scale={0.7} />
+        <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[4, 0.05, 13]} />
+        <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0.05, 13]} />
+        <Garden args={[0.5, 2, 0.5]} scale={0.5} position={[-1, 0.05, -13.35]} />
         {/* <mesh position={[-2, 1.75, 0]} castShadow>
           <sphereGeometry args={[0.5, 32, 32]} />
           <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
