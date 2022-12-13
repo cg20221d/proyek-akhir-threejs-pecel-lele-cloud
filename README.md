@@ -19,14 +19,15 @@ yarn && yarn dev
   - Menambahkan gate depan
   - Merubah posisi camera sesuai ketinggian karakter
 - Muhammad Rolanov Wowor 5025201017 :
-  - ngebuat character di branch [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
+  - Membuat character (player) di branch [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
+  - Membuat input keyboard dan mouse (pergerakan dan arah kamera dari character)
 - Zunia Aswaroh 5025201058 :
-  - ngebuat Rumah ada di [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/blob/main/public/Home/Rumah.glb)
+  - Membuat Rumah ada di [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/blob/main/public/Home/Rumah.glb)
 - Maula Izza Azizi 5025201104 :
-  - ngebuat template project
+  - Membuat template project
     > [three-world](https://github.com/storyofhis/three-world)
-  - ngefix character dari [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
-  - ngerender Rumah dari Kerjaan Zunia [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/blob/main/public/Home/Rumah.glb)
+  - Melakukan fiksasi character dari [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
+  - Melakukan rendering Rumah dari Kerjaan Zunia [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/blob/main/public/Home/Rumah.glb)
   - Membenarkan lighting lingkungan dan rumah
   - Menambahkan pohon di sekitar lingkungan
   - Membuat lighting sesuai posisi matahari
