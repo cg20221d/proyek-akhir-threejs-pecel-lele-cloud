@@ -29,6 +29,7 @@ List Anggota :
 4. Maula Izza Azizi 5025201104
 5. Aiffah Kiysa Waafi 5025201202
 
-Link Presentasi (Google Slides): https://docs.google.com/presentation/d/1zjK52606gAKQx4JtPuaLS14F2E4lCEl9gA2Hw0Albds/edit#slide=id.g16ad3355595_10_14
+Link Presentasi (Google Slides): https://docs.google.com/document/d/1sQoUp9Vfe-5Gx5gMx6nPwycnxLNseluLzUxQXn5syZ0/edit?usp=sharing
+
 
 proyek-akhir-threejs-pecel-lele-cloud created by GitHub Classroom

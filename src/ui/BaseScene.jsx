@@ -15,18 +15,8 @@ const BasicScene = ({ children }) => {
   return (
     <div>
       <Canvas shadows camera={{ fov: 50 }} id="three-canvas-container">
-        <Lights />
-        {/* {dateState.toLocaleDateString("en-GB", {
-          day: "numeric",
-          months: "short",
-          year: "numeric",
-        })}
-        <br />
-        {dateState.toLocaleDateString("en-US", {
-          hour: "numeric",
-          minute: "numeric",
-          hour12: true,
-        })} */}
+        {/* <Lights /> */}
+
         <Physics gravity={[0, -9.8, 0]}>
           {children}
 

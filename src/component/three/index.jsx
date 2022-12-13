@@ -9,7 +9,6 @@ import gsap from "gsap";
 import Camera from "../Camera/index";
 import Object from "../Object/index";
 import Floor from "../Floor/index";
-import SunSphereGeometry from "../Sun/index";
 import ModelViewer from "../Home/ModelViewer";
 import Rumah from "../Home/Rumah";
 

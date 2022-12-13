@@ -3,56 +3,61 @@ import Three from "./component/three";
 import "./App.css";
 
 /** Person */
-import { Sky } from "@react-three/drei";
+import { Sky, Environment } from "@react-three/drei";
 import BaseScene from "./ui/BaseScene";
 import ThreeModel from "./component/ThreeModel";
 import BaseCharacter from "./ui/BaseCharacter";
 import Rumah from "./component/Home/Rumah";
-// import Home from "./component/Home/Home";
-// import House from "/Home/HouseProject";
+import Sun from "./component/Sun/Sun";
+import Lampu from "./component/Lampu";
+import Garden from "./component/French_chateau";
 
-import { useState, useEffect } from "react";
-
-// time
-
-function App() {
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
-  const [status, setStatus] = useState(null);
-
-  const getLocation = () => {
-    if (!navigator.geolocation) {
-      setStatus("Geolocation is not supported by your browser");
-    } else {
-      setStatus("Locating...");
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          setStatus(null);
-          setLat(position.coords.latitude);
-          setLng(position.coords.longitude);
-        },
-        () => {
-          setStatus("Unable to retrieve your location");
-        }
-      );
-    }
-  };
-
+function App(props) {
   return (
     <>
       {/* <Suspense> */}
       <BaseScene>
-        <BaseCharacter controls position={[0, 2, 0]} args={[0.5]} color="yellow" />
+        <BaseCharacter controls position={[0, 5, 30]} args={[2.5]} color="yellow" />
         <Rumah />
-        <ambientLight args={["#ffffff", 0.25]} />
+        {/* <ambientLight args={["#ffffff", 0.25]} /> */}
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 1]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-5, 0, 5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0, 20]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[3, 0, 20]} />
+        <Sun args={[0.2, 2, 0.2]} scale={0.7} />
+        <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[4, 0.05, 13]} />
+        <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0.05, 13]} />
+        <Garden args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0.05, -13.35]} />
 
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[10, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0, 10]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-10, 0, 5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-5, 0, -5]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0, -10]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[10, 0, 5]} />
-        <Sky />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -7]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -10]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -13]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -16]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -19]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -22]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -7]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -10]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -13]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -16]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -19]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -22]} />
+        {/* <mesh position={[-2, 1.75, 0]} castShadow>
+          <sphereGeometry args={[0.5, 32, 32]} />
+          <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
+        </mesh> */}
+        {/* <ambientLight args={["#ffffff", 0.5]} /> */}
+        {/* <group ref={ref} {...props} dispose={null}> */}
+        {/* <pointLight args={["#ffffff", 2]} position={[0.2, 10, 0.2]} /> */}
+        {/* </group> */}
+
+        <Sky distance={450000} azimuth={1} />
+        {/* <Environment background>
+          <mesh>
+            <sphereGeometry args={[50, 100, 100]} />
+            <meshBasicMaterial />
+          </mesh>
+        </Environment> */}
       </BaseScene>
       {/* </Suspense> */}
     </>
