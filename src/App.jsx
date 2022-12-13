@@ -26,8 +26,21 @@ function App(props) {
         <Sun args={[0.2, 2, 0.2]} scale={0.7} />
         <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[4, 0.05, 13]} />
         <Lampu args={[0.5, 2, 0.5]} scale={0.5} position={[-3, 0.05, 13]} />
-        <Garden args={[0.5, 2, 0.5]} scale={0.5} position={[-0.5, 0.05, -13.35]} />
-        
+        <Garden args={[0.5, 2, 0.5]} scale={0.5} position={[0, 0.05, -13.35]} />
+
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[5, 0, 5]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -7]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -10]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -13]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -16]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -19]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[-7, 0, -22]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -7]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -10]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -13]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -16]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -19]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -22]} />
         {/* <mesh position={[-2, 1.75, 0]} castShadow>
           <sphereGeometry args={[0.5, 32, 32]} />
           <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
