@@ -11,6 +11,7 @@ import Rumah from "./component/Home/Rumah";
 import Sun from "./component/Sun/Sun";
 import Lampu from "./component/Lampu";
 import Garden from "./component/French_chateau";
+import Rock from "./component/Rock";
 
 function App(props) {
   return (
@@ -41,7 +42,8 @@ function App(props) {
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -13]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -16]} />
         <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -19]} />
-        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -22]} />
+        <ThreeModel args={[0.5, 2, 0.5]} scale={0.5} position={[7, 0, -19]} />
+        <Rock args={[0.5, 2, 0.5]} scale={1} position={[4.5, 0.8, 21]} />
         {/* <mesh position={[-2, 1.75, 0]} castShadow>
           <sphereGeometry args={[0.5, 32, 32]} />
           <meshStandardMaterial color="#ffffff" metalness={0.6} roughness={0.2} />
