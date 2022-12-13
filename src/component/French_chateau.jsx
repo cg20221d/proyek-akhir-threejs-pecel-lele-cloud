@@ -36,7 +36,7 @@ export default function Model({ ...props }) {
             <mesh geometry={nodes.Circle001_House_0.geometry} material={materials.House} />
             <mesh geometry={nodes.Circle001_Concrete_0.geometry} material={materials.Concrete} />
             <mesh geometry={nodes.Circle001_Chimney_0.geometry} material={materials.Chimney} />
-            <mesh geometry={nodes.Circle001_Sky_0.geometry} material={materials.material} />
+            {/* <mesh geometry={nodes.Circle001_Sky_0.geometry} material={materials.material} /> */}
             <mesh geometry={nodes.Circle001_Wall002_0.geometry} material={materials['Wall.002']} />
             {/* <mesh geometry={nodes.Circle001_Hedges_0.geometry} material={materials.Hedges} />
             <mesh geometry={nodes.Circle001_Hedges_0_1.geometry} material={materials.Hedges} />
