@@ -11,13 +11,14 @@ yarn && yarn dev
 > This project was made using instinct and concern for the final project 🙏
 
 - Aiffah Kiysa Waafi 5025201202 :
-  - Menambahkan matahari dan membuat position matahari realtime menggunakan suncalc
-  - Menambahkan warna di rumah dan beberapa ornamen
-  - Membenarkan lighting matahari dan posisi rumah
-  - Menambahkan lingkungan di belakang rumah
-  - Menambahkan lampu taman dan component di taman
-  - Menambahkan gate depan
+  - Merender objek matahari dari sketchfab [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/add/sun)
+  - Membuat position matahari realtime menggunakan suncalc dimana position matahari dihitung menggunakan sudut azimuth dan altitude yang diambil dari posisi lattitude dan longitude Kota Surabaya.
+  - Menambahkan warna di rumah dan beberapa ornamen dalam rumah menggunakan blender
+  - Resolve lighting matahari dan rotate posisi rumah
+  - Menambahkan lingkungan di belakang rumah [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/garden)
+  - Merender lampu taman dan component di taman serta gate pintu masuk
   - Merubah posisi camera sesuai ketinggian karakter
+  - Mengupdate rumah dan lingkungan
 - Muhammad Rolanov Wowor 5025201017 :
   - Membuat character (player) di branch [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
   - Membuat input keyboard dan mouse (pergerakan dan arah kamera dari character)
@@ -28,11 +29,14 @@ yarn && yarn dev
     > [three-world](https://github.com/storyofhis/three-world)
   - Melakukan fiksasi character dari [olan](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/tree/olan)
   - Melakukan rendering Rumah dari Kerjaan Zunia [link](https://github.com/cg20221d/proyek-akhir-threejs-pecel-lele-cloud/blob/main/public/Home/Rumah.glb)
-  - Membenarkan lighting lingkungan dan rumah
-  - Menambahkan pohon di sekitar lingkungan
-  - Membuat lighting sesuai posisi matahari
+  - Resolve lighting lingkungan dan rumah
+  - Resolve menampilkan objek matahari dari sketchfab
+  - Merubah posisi karakter tepat berada di depan rumah
+  - Menambahkan dan mengatur posisi pohon di sekitar lingkungan rumah
+  - Membuat lighting mengikuti posisi matahari
 - Luthfiyyah Hanifah Amari
   - Menambahkan warna rumah
+  - Mengupdate rumah pada blender
 
 Grafika Komputer D
 List Anggota :
